@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from collections import Counter
-from vector_operations import distance, vector_subtract, scalar_multiply
-from functools import reduce
-import math, random
+from vector_operations import vector_subtract, scalar_multiply
+#from functools import reduce
+import random
 
 def sum_of_squares(v):
     """computes the sum of squared elements in v"""
