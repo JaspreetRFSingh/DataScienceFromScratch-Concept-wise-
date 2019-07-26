@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import math
-import basic_statistics_operations as bso
-import vector_operations as vo
+import maths_concepts.basic_statistics_operations as bso
+import maths_concepts.vector_operations as vo
 def data_range(x):
     return max(x) - min(x)
 
