@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from maths_concepts.probability_distribution import inverse_normal_cdf
 
 
+#One Dimensional data
 def bucketize(point, bucket_size):
     """floor the point to the next lower multiple of bucket_size"""
     return bucket_size * math.floor(point / bucket_size)
@@ -27,3 +28,22 @@ normal = [57*inverse_normal_cdf(random.random())
 
 plot_histogram(uniform, 10, "Uniform Histogram")
 plot_histogram(normal, 10, "Normal Histogram")
+
+
+
+#exploring two dimensional data
+def random_normal():
+    """returns a random draw from a standard normal distribution"""
+    return inverse_normal_cdf(random.random())
+
+xs = [random_normal() for _ in range(1000)]
+ys1 = [ x + random_normal() / 2 for x in xs]
+ys2 = [-x + random_normal() / 2 for x in xs]
+
+
+plt.scatter(xs, ys1, marker='.', color='red', label='ys1')
+plt.scatter(xs, ys2, marker='.', color='blue',  label='ys2')
+plt.xlabel('xs')
+plt.ylabel('ys')
+plt.legend(loc=9)
+plt.show()
