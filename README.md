@@ -1,5 +1,15 @@
-# DataScienceFromScratch(Concept-wise)
-Inspired by 'Data Science from Scratch' by Joel Grus.
-This repository contains 'practiced' code(and some extra stuff) given in the book.
-Each concept has been divided as categorically as possible.
-Coded in Python3 (Spyder).
+# Data Science Concepts
+This repository contains *practiced* Python code for understanding of Data Science fundamentals. </br>
+Each concept has been divided as categorically as possible. </br>
+
+## Modules in the repository
+1. **maths_concepts** - Basics of Linear Algebra, Statistics, Probability and othe mathemtical concepts used widely in Data Science. </br>
+2. **data** - Fundamentals of getting data, scraping data from web, cleaning data, munging data and working on data. </br>
+
+
+### IDE Used
+Spyder - (Coded in Python3)
+
+### Inspiration
+*Book*: **Data Science from Scratch** </br>
+*Author*: **Joel Grus**
