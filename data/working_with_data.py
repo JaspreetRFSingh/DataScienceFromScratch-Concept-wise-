@@ -48,7 +48,12 @@ plt.scatter(xs, ys2, marker='.', color='blue',  label='ys2')
 plt.xlabel('xs')
 plt.ylabel('ys')
 plt.legend(loc=9)
+plt.title("Very different joint distributions")
 plt.show()
+
+#The difference is too apparent looking at the correlations
+print(correlation(xs, ys1))
+print(correlation(xs, ys2))
 
 
 #exploring many dimensions using correlational matrix
@@ -67,10 +72,6 @@ def make_scatterplot_matrix():
 
     
     print("Matrix correlational relations!")
-    
-    
-    # first, generate some random data
-
     num_points = 100
 
     def random_row():
