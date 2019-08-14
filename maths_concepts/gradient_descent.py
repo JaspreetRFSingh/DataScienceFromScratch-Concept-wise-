@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from vector_operations import vector_subtract, scalar_multiply
+from maths_concepts.vector_operations import vector_subtract, scalar_multiply
 #from functools import reduce
 import random
 
