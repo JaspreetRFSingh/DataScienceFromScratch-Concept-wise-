@@ -459,7 +459,6 @@ def transform(X, components):
     return [transform_vector(x_i, components) for x_i in X]
 
 
-
 print("rescaling")
 data = [[1, 20, 2],
         [1, 30, 3],
