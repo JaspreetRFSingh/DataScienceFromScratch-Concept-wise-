@@ -115,18 +115,9 @@ def make_scatterplot_matrix():
 make_scatterplot_matrix()
 
 
-
-
 #
 #Cleaning and Munging Data
 #
-
-
-#def parse_row(input_row, parsers):
-#    """given a list of parsers (some of which may be None)
-#    apply the appropriate one to each element of the input_row"""
-#    return [parser(value) if parser is not None else value
-#            for value, parser in zip(input_row, parsers)]
 
 def parse_rows_with(reader, parsers):
     """wrap a reader to apply the parsers to each of its rows"""
