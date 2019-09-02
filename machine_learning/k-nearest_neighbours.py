@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from collections import Counter
 from maths_concepts.vector_operations import distance
+from maths_concepts.basic_statistics_operations import mean
 import matplotlib.pyplot as plt
+import random
 
 
 def majority_vote(labels):
@@ -123,3 +125,51 @@ def classify_and_plot_grid(k=1):
     
 plot_cities()
 classify_and_plot_grid()
+
+
+
+
+#
+# the curse of dimensionality
+#
+
+def random_point(dim):
+    return [random.random() for _ in range(dim)]
+
+def random_distances(dim, num_pairs):
+    return [distance(random_point(dim), random_point(dim))
+            for _ in range(num_pairs)]
+
+
+dimensions = range(1, 101)
+
+avg_distances = []
+min_distances = []
+
+random.seed(0)
+for dim in dimensions:
+    distances = random_distances(dim, 10000)  # 10,000 random pairs
+    avg_distances.append(mean(distances))     # track the average
+    min_distances.append(min(distances))      # track the minimum
+    print(dim, min(distances), mean(distances), min(distances) / mean(distances))
+    print("\n")
+
+min_avg_ratio = [min_dist/avg_dist
+                 for min_dist, avg_dist in zip(min_distances, avg_distances)]
+
+
+plt.plot(dimensions,avg_distances, color='green', linestyle='solid')
+plt.plot(dimensions,min_distances, color='blue', linestyle='solid')
+plt.title("10000 Random Distances")
+plt.xlabel("# of dimensions")
+plt.show()
+
+
+plt.plot(dimensions, min_avg_ratio, color = 'red', linestyle = 'solid')
+plt.title("Minimum Distance / Average Distance")
+plt.xlabel("# of dimensions")
+plt.show()
+
+
+
+
