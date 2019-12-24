@@ -2,6 +2,8 @@
 import math
 import maths_concepts.basic_statistics_operations as bso
 import maths_concepts.vector_operations as vo
+
+
 def data_range(x):
     return max(x) - min(x)
 
