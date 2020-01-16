@@ -74,3 +74,7 @@ if __name__ == "__main__":
     print("Covariation: ",covariance(bso.runs_scored, balls_per_innings))
     
     print("Correlation: ",correlation(bso.runs_scored, balls_per_innings))
+    
+    x=[3,4,2,1,5]
+    print("m:", bso.mean(x))
+    print("dm: ", de_mean(x))
