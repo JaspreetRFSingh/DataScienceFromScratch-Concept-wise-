@@ -44,11 +44,15 @@ def estimate_beta(x,y):
 
 
 def multiple_r_squared(x, y, beta):
-    sum_of_squared_errors = sum(error(x_i, y_i, beta) ** 2
+    sum_of_squared_errors = sum(squared_error(x_i, y_i, beta)
                                 for x_i, y_i in zip(x, y))
+    
+    print("sose: ", sum_of_squared_errors)
     
     return 1.0 - sum_of_squared_errors / total_sum_of_squares(y)
 
+def bootstrap_sample(data):
+    return [random.choice(data) for  _ in data]
 
 if __name__ == "__main__":
 
@@ -58,8 +62,10 @@ if __name__ == "__main__":
     random.seed(0)
     beta = estimate_beta(x, daily_minutes_good)
     print("beta", beta)
-    
     print("multiple r squared: ",multiple_r_squared(x, daily_minutes_good, beta))
+    
+    arr = [1,31,23,13]
+    print("rv: ", bootstrap_sample(arr))
     
 
     
