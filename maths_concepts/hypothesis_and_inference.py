@@ -101,16 +101,7 @@ def reject_fairness(experiment):
     num_heads = len([flip for flip in experiment if flip])
     return num_heads < 469 or num_heads > 531
 
-print("P-hacking")
 
-random.seed(0)
-experiments = [run_experiment() for _ in range(1000)]
-num_rejections = len([experiment
-                      for experiment in experiments
-                      if reject_fairness(experiment)])
-
-print(num_rejections, "rejections out of 1000")
-print()
 
 ##
 #
@@ -143,10 +134,25 @@ def beta_pdf(x, alpha, beta):
         return 0
     return x ** (alpha - 1) * (1 - x) ** (beta - 1) / B(alpha, beta)
 
-print("A/B testing")
-z = a_b_test_statistic(1000, 200, 1000, 180)
-print("a_b_test_statistic(1000, 200, 1000, 180)", z)
-print("p-value", two_sided_p_value(z))
-z = a_b_test_statistic(1000, 200, 1000, 150)
-print("a_b_test_statistic(1000, 200, 1000, 150)", z)
-print("p-value", two_sided_p_value(z))
+
+
+if __name__ == "__main__":
+    print("P-hacking")
+    
+    random.seed(0)
+    experiments = [run_experiment() for _ in range(1000)]
+    num_rejections = len([experiment
+                          for experiment in experiments
+                          if reject_fairness(experiment)])
+    
+    print(num_rejections, "rejections out of 1000")
+    print()
+    
+    
+    print("A/B testing")
+    z = a_b_test_statistic(1000, 200, 1000, 180)
+    print("a_b_test_statistic(1000, 200, 1000, 180)", z)
+    print("p-value", two_sided_p_value(z))
+    z = a_b_test_statistic(1000, 200, 1000, 150)
+    print("a_b_test_statistic(1000, 200, 1000, 150)", z)
+    print("p-value", two_sided_p_value(z))

@@ -134,7 +134,8 @@ def maximize_stochastic(target_fn, gradient_fn, x, y, theta_0, alpha_0=0.01):
                                negate_all(gradient_fn),
                                x, y, theta_0, alpha_0)
     
-v = [random.randint(-10,10) for i in range(3)]
-v = minimize_batch(sum_of_squares, sum_of_squares_gradient, v)
-print("minimum v", v)
-print("minimum value", sum_of_squares(v))
+if __name__ == "__main__":
+    v = [random.randint(-10,10) for i in range(3)]
+    v = minimize_batch(sum_of_squares, sum_of_squares_gradient, v)
+    print("minimum v", v)
+    print("minimum value", sum_of_squares(v))
