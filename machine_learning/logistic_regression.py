@@ -14,3 +14,4 @@ def logistic(x):
 #derivative of the logistic function
 def logistic_prime(x):
     return logistic(x) * (1 - logistic(x))
+
